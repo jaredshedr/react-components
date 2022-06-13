@@ -24,18 +24,22 @@ class GroceryListItem extends React.Component {
 
 }
 
-var Grocerylist = (props) => (
-  <div>
-    <h2>GROCERY LIST</h2>
-      <ul>
-        {props.list.map( function (item) {
-          // console.log(item);
-          return <GroceryListItem item={item} />
-        })}
-      </ul>
-  </div>
+var GroceryList = (props) => (
+    <ul>
+      {props.list.map( function (item) {
+        // console.log(item);
+        return <GroceryListItem item={item} />
+      })}
+    </ul>
 );
 
+var App = () => (
+  <div>
+    <h2>Grocery List</h2>
+    <GroceryList list={list} />
+  </div>
+);
+var list = ['cucumber', 'kale'];
 
-var list = ['cucumber', 'kale']
-ReactDOM.render(<Grocerylist list={list} />, document.getElementById("app"));
+
+ReactDOM.render(<App />, document.getElementById("app"));
